@@ -19,7 +19,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author px
- * @since 2022-01-20
+ * @since 2022-02-22
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -34,10 +34,16 @@ public class Topic implements Serializable {
     private Integer tid;
 
     @ApiModelProperty(value = "题目")
-    private String tName;
+    private String title;
+
+    @ApiModelProperty(value = "options选项")
+    private String options;
 
     @ApiModelProperty(value = "题目类型")
-    private String tType;
+    private String type;
+
+    @ApiModelProperty(value = "是否必须 (0 false，  1  true)")
+    private Boolean required;
 
     @ApiModelProperty(value = "题目顺序")
     private Integer sort;
@@ -48,13 +54,12 @@ public class Topic implements Serializable {
     @ApiModelProperty(value = "答案id")
     private Integer rid;
 
-    @TableField(fill = FieldFill.INSERT)
     @ApiModelProperty(value = "创建时间")
+    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
     @ApiModelProperty(value = "修改时间")
     private Date updateTime;
-
 
 }

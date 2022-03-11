@@ -1,17 +1,17 @@
-package com.px.questionnaireService;
+package com.px;
 
-import org.mybatis.spring.annotation.MapperScan;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.scheduling.annotation.EnableScheduling;
 
-@SpringBootApplication
+@SpringBootApplication(exclude={DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 @ComponentScan("com.px")
-@MapperScan("com.px.questionnaireService.mapper")
-@EnableScheduling
 public class Boot {
     public static void main(String[] args) {
         SpringApplication.run(Boot.class,args);
     }
 }
+

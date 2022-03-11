@@ -14,6 +14,7 @@
     <modules>
         <module>user_service</module>
         <module>questionnair_service</module>
+        <module>common_service</module>
     </modules>
     <dependencies>
 
@@ -122,6 +123,12 @@
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.3.3</version>
         </dependency>
 
         <dependency>

@@ -34,19 +34,25 @@ public class Questionnaire implements Serializable {
     private Integer qid;
 
     @ApiModelProperty(value = "问卷名")
-    private String qName;
+    private String title;
 
     @ApiModelProperty(value = "问卷类型")
-    private Integer qType;
+    private Integer type;
 
     @ApiModelProperty(value = "问卷创建者")
     private Integer uid;
 
     @ApiModelProperty(value = "是否发布 0：未发布  1：已发布")
-    private Integer stage;
+    private Boolean stage;
 
-    @TableField(fill = FieldFill.INSERT)
+    @ApiModelProperty(value = "是否设置截止时间 0：未设置  1：设置")
+    private Boolean deadline;
+
+    @ApiModelProperty(value = "截止日期")
+    private String date;
+
     @ApiModelProperty(value = "创建时间")
+    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
 
     @TableField(fill = FieldFill.INSERT_UPDATE)

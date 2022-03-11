@@ -19,7 +19,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author px
- * @since 2022-01-20
+ * @since 2022-02-22
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -37,10 +37,10 @@ public class Reason implements Serializable {
     private String res;
 
     @ApiModelProperty(value = "答案类型")
-    private String rType;
+    private String type;
 
-    @TableField(fill = FieldFill.INSERT)
     @ApiModelProperty(value = "创建时间")
+    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
 
     @TableField(fill = FieldFill.INSERT_UPDATE)

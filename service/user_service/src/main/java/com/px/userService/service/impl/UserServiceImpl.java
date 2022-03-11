@@ -1,5 +1,6 @@
 package com.px.userService.service.impl;
 
+import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.px.commonUtils.R;
 import com.px.commonUtils.Util;
@@ -66,9 +67,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             throw new WjException(400,"出现未知错误，请通过手机号注册");
         }
         //生成账号
-        String account = String.format("PX-%s",Util.getRandomStr(6));
+        String account = String.format("PX-%s", RandomUtil.randomString(6));
         //生成密码
-        String password = Util.getRandomStr(6);
+        String password = RandomUtil.randomString(6);
 
         User user = new User();
         user.setAccount(account);

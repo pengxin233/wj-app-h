@@ -12,7 +12,8 @@ public class GlobalException {
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public R error(Exception e){
-        log.error(e.getMessage());
+        log.error(e.toString());
+        e.printStackTrace();
         return R.error().msg("出现了未知的错误");
     }
 
