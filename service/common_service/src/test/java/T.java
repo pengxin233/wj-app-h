@@ -1,25 +1,71 @@
 import cn.hutool.core.date.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class T {
     public static void main(String[] args) {
-        DateTime dateTime = DateUtil.date();
+        List<Integer> array = new ArrayList<Integer>();
+        List<Integer> link = new LinkedList<Integer>();
 
-        DateTime parse = DateUtil.parse("2022-02-10 14:58:03");
-        Date date = parse.toJdkDate();
+        long startTime = 0;
+        long endTime = 0;
+        int num = 150;
 
-        System.out.println(dateTime);
+        startTime=System.currentTimeMillis();
+        for(int i=0; i<num; i++) {
+            array.add(i);
+        }
+        endTime=System.currentTimeMillis();
+        System.out.println("ArrayList add 花费时间: " + (endTime - startTime));
 
-        long between = dateTime.between(date, DateUnit.DAY);
+        startTime=System.currentTimeMillis();
+        for(int i=0; i<num; i++) {
+            link.add(i);
+        }
+        endTime=System.currentTimeMillis();
+        System.out.println("LinkedList add 花费时间: " + (endTime - startTime));
 
-        System.out.println(between);
+        startTime=System.currentTimeMillis();
+        for(int i=0; i<num; i++) {
+            array.get(i);
+        }
+        endTime=System.currentTimeMillis();
+        System.out.println("for 遍历  ArrayList get 花费时间: " + (endTime - startTime));
 
-        DateTime offset = dateTime.offset(DateField.DAY_OF_MONTH, 1);
-        System.out.println(offset);
-        final String s1 = offset.toDateStr();
-        System.out.println(s1);
+        startTime=System.currentTimeMillis();
+        for(int i=0; i<num; i++) {
+            link.get(i);
+        }
+        endTime=System.currentTimeMillis();
+        System.out.println("for 遍历 LinkedList get 花费时间: " + (endTime - startTime));
+
+        startTime=System.currentTimeMillis();
+        for(int i : array) {
+//            System.out.print(i+"\r");
+        }
+        endTime=System.currentTimeMillis();
+        System.out.println("forEach 遍历  ArrayList get 花费时间: " + (endTime - startTime));
+
+        startTime=System.currentTimeMillis();
+        for(int i : link) {
+//            System.out.print(i+"\r");
+        }
+        endTime=System.currentTimeMillis();
+        System.out.println("forEach 遍历 LinkedList get 花费时间: " + (endTime - startTime));
+
+        startTime=System.currentTimeMillis();
+        array.stream().forEach(item -> {});
+        endTime=System.currentTimeMillis();
+        System.out.println("stream 遍历 LinkedList get 花费时间: " + (endTime - startTime));
+
+        startTime=System.currentTimeMillis();
+        link.stream().forEach(item -> {});
+        endTime=System.currentTimeMillis();
+        System.out.println("stream 遍历 LinkedList get 花费时间: " + (endTime - startTime));
     }
 
 }
